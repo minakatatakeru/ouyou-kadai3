@@ -52,4 +52,9 @@ before_action :authenticate_user!, except: [:top, :about]
   def book_params
     params.require(:book).permit(:title, :body)
   end
+  
+  def book_comment_params
+    params.require(:book_comment).permit(:comment)
+  end
+  
 end
