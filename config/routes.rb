@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+  get 'rooms/create'
+  get 'rooms/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   root :to =>"homes#top"
@@ -16,6 +19,9 @@ Rails.application.routes.draw do
    
    get "search" => "searches#search"
    get "search_result" => "searches#search_result"
-  end
+  
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
+end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
